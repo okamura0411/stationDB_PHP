@@ -4,7 +4,6 @@ include('funcs.php');
 LoginCheck();
 $pdo = db_connect();
 
-// stmtにデータが全て入っている。正直ここで何してるかわからん。
 $stmt = $pdo->prepare("SELECT * FROM kadai");
 $status = $stmt->execute();
 if($status==false) {
@@ -14,7 +13,6 @@ if($status==false) {
 }
 //全データ取得
 $values =  $stmt->fetchAll(PDO::FETCH_ASSOC); 
-//PDO::FETCH_ASSOC[カラム名のみで取得できるモード]$stmtのデータを1行ずつ$valuesに入れている。
 $json = json_encode($values);
 ?>
 
@@ -123,8 +121,6 @@ $json = json_encode($values);
         str = strCut;
       }
       let strCut = str.substr(0, str.indexOf(','));
-      // カンマの数を数える
-      // let kanmaCount = str.match(/,/g);
       let kanmaCount = response.data[i].fname.split(',').length;
       console.log(response.data[i].fname.split(','));
       console.log(response.data[i].fname.split(',').length);
@@ -153,7 +149,6 @@ $json = json_encode($values);
     }
     $("#list").html(kind_item);
     $("#list").append(html);
-    // この下にclass処理を追加する。
     $("td:contains('緊急対応')").addClass('red');
     }).catch(function (error) {
         console.log(error);  //通信Error
@@ -162,7 +157,6 @@ $json = json_encode($values);
     });
 });
 
-// hover,clickの処理
 
 $(document).ready(function(){
   $("td:contains('緊急対応')").addClass('red');
