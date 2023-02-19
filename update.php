@@ -26,14 +26,6 @@ if($countFiles == 0){
 }
 echo $fname_str;
 
-// $upload = "./img/"; //画像アップロードフォルダへのパス→複数の場合はここをfor foreach文でまわす。
-// for($i=0; $i<$countFiles; $i++){
-//   if(move_uploaded_file($_FILES['fname']['tmp_name'][$i], $upload.$fname[$i])){
-//   } else {
-//     echo "Upload failed";
-//     echo $_FILES['upfile']['error'][$i];
-//   }
-// }
 
 $pdo = db_connect();
 $sql = "UPDATE kadai SET station=:station,place=:place,detail=:detail,quantity=:quantity,whose=:whose,action=:action,remarks=:remarks ,fname=:fname WHERE id=:id;";
