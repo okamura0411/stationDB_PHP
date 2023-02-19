@@ -5,10 +5,6 @@ LoginCheck();
 ini_set('display_errors', 'On'); // エラーを表示させるようにしてください
 error_reporting(E_ALL); // 全てのレベルのエラーを表示してください
 
-// captureされていたらajaxの処理を行う
-// $filesAry   = $_POST['a'];
-// var_dump($filesAry);
-
 $station  = $_POST["station"];
 $place    = $_POST["place"];
 $quantity = $_POST["quantity"];
@@ -23,11 +19,6 @@ $fname    = $_FILES['fname']['name'];
 // 配列をカンマ区切りの1行にかえる。
 $fname_str  =  implode(',', $fname);
 $countFiles = count($_FILES['fname']['name']);
-// var_dump($_FILES['fname']['tmp_name']);
-// $fnameCounter = count($fname);
-// echo $fnameCounter;
-// ここにBASE64対応
-
 
 $upload = "./img/"; //画像アップロードフォルダへのパス
 for($i=0; $i<$countFiles; $i++){
