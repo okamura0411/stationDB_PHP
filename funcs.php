@@ -17,8 +17,7 @@ function h($str){
 function db_connect(){
   try {
       $pdo = new PDO('mysql:dbname=gs_db;charset=utf8;host=localhost','root','');
-      // さくらサーバー接続Ver
-      // $pdo = new PDO('mysql:dbname=okamura0411_unit1;charset=utf8;host=mysql57.okamura0411.sakura.ne.jp','okamura0411','kobedunk-24');
+ 
     } catch (PDOException $e) {
       exit('DBConnectError:'.$e->getMessage());
     }
