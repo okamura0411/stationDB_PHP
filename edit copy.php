@@ -10,7 +10,7 @@ $id=$_GET['id'];
   $stmt -> bindValue(':id',$id,PDO::PARAM_INT);
 //executeで実行。stmtを実行した結果がstatusに入ってくる。
   $status = $stmt->execute();
-    $view='';//これいるんかな。。。
+    $view='';
     if($status==false){
         // SQLにエラーが実行されている場合
         $eror = $stmt->errorInfo();
@@ -75,9 +75,7 @@ $id=$_GET['id'];
 $('input[type=file]').change(function() {
   //選択したファイルを取得し、file変数に格納
   let file = $(this).prop('files')[0];
-  // 画像以外は処理を停止
   if (!file.type.match('image.*')) {
-    // クリア
     $(this).val(''); //選択されてるファイルを空にする
     $('.sample > img').html(''); //画像表示箇所を空にする
     return;
