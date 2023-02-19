@@ -12,7 +12,7 @@ $id=$_GET['id'];
   $stmt -> bindValue(':id',$id,PDO::PARAM_INT);
 //executeで実行。stmtを実行した結果がstatusに入ってくる。
   $status = $stmt->execute();
-    $view='';//これいるんかな。。。
+    $view='';
     if($status==false){
         // SQLにエラーが実行されている場合
         $eror = $stmt->errorInfo();
@@ -195,8 +195,7 @@ $('input[type=file]').change(function() {
     video: {
       width: 600,
       height: 400,
-      facingMode: "user"   // フロントカメラを利用する
-      // facingMode: { exact: "environment" }  // リアカメラを利用する場合
+      facingMode: "user"
     }
   };
 
@@ -221,10 +220,7 @@ $('input[type=file]').change(function() {
     setTimeout( () => {
       video.play();    // 0.2秒後にカメラ再開
     }, 200);
-    // canvasを生成してに画像を貼り付ける
     ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-    // ここの後に画像を保存かつPHPに送信する処理を記載する。
-  // canvasのBASE64を取得
 
     let image_url = canvas.toDataURL("image/png");
     let base64 = image_url.substr(image_url.indexOf(',') + 1);
@@ -254,29 +250,6 @@ function loadImage(obj){
 		fileReader.readAsDataURL(obj.files[i]);
 	}
 }
-
-// tourokuされたときに配列が入っていれば値をinsert.phpへ受けわたす
-// $('.touroku').on('click',function () {
-//   alert(tmp_files);
-//   if(tmp_files.length){
-//     // ajaxの処理で配列をinsert.phpへ送信する。
-//     $.ajax({
-//       url: 'insert.php',
-//       type: "POST",
-//       // data: JSON.stringify(tmp_files),
-//       data:{
-//                 'ary': tmp_files,
-//             },
-
-//             success: function (data) {
-//               alert('OK');
-//             },
-//             error: function(XMLHttpRequest, textStatus, errorThrown) {
-//               alert('NG');
-//             }
-//           });
-//   }
-// })
 
 </script>
 </body>
